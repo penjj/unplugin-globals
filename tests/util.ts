@@ -1,5 +1,6 @@
 export function runScript(body: string) {
-  // return `Hello World` 
+  // return `Hello World`
+  // eslint-disable-next-line no-new-func, no-useless-call
   return new Function(`
     const LibA = {
       h: 'h',
