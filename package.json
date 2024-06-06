@@ -1,0 +1,71 @@
+{
+  "name": "unplugin-globals",
+  "type": "module",
+  "version": "0.0.0-alpha.1",
+  "packageManager": "pnpm@9.2.0",
+  "description": "Make external deps to globally",
+  "author": "penjj <peng.j.1995@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/penjj",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/penjj/unplugin-globals.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.mjs",
+      "require": "./dist/vite.cjs"
+    },
+    "./webpack": {
+      "types": "./dist/webpack.d.ts",
+      "import": "./dist/webpack.mjs",
+      "require": "./dist/webpack.cjs"
+    },
+    "./esbuild": {
+      "types": "./dist/esbuild.d.ts",
+      "import": "./dist/esbuild.mjs",
+      "require": "./dist/esbuild.cjs"
+    },
+    "./rollup": {
+      "types": "./dist/rollup.d.ts",
+      "import": "./dist/rollup.mjs",
+      "require": "./dist/rollup.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "bundle": "unbuild",
+    "stub": "unbuild --stub",
+    "test": "vitest",
+    "release": "bumpp"
+  },
+  "peerDependencies": {
+    "unplugin": ">=1"
+  },
+  "dependencies": {
+    "ast-kit": "^0.12.2",
+    "magic-string": "^0.30.10"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.20.0",
+    "@babel/types": "^7.24.7",
+    "@penjj/tsconfig": "^0.3.7",
+    "bumpp": "^9.4.1",
+    "esbuild": "^0.21.4",
+    "rollup": "^4.18.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "typescript": "^5.4.5",
+    "unplugin": "^1.10.1",
+    "vite": "^5.2.12",
+    "vitest": "^1.6.0",
+    "webpack": "^5.91.0"
+  }
+}

@@ -1,0 +1,29 @@
+var __webpack_exports__ = {};
+
+// UNUSED EXPORTS: default
+
+;// CONCATENATED MODULE: ./_virtual_vue
+/* harmony default export */ const _virtual_vue = (Vue);
+;// CONCATENATED MODULE: ./_virtual_vue-router
+/* harmony default export */ const _virtual_vue_router = (VueRouter);
+;// CONCATENATED MODULE: ./tests/fixtures/foo.ts
+/* eslint-disable */
+// @ts-ignore
+
+const createApp = _virtual_vue.createApp;
+const ref = _virtual_vue.ref;
+// @ts-ignore
+
+const RouterView = _virtual_vue_router.RouterView;
+// @ts-ignore
+
+const foo_Vue = _virtual_vue;
+// @ts-ignore
+
+const defaults = _virtual_vue_router;
+const createRouter = _virtual_vue_router.createRouter;
+
+console.log(foo_Vue, defaults, ref(), createRouter())
+
+/* harmony default export */ const foo = (createApp(RouterView));
+

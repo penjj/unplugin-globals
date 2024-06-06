@@ -1,0 +1,13 @@
+const __global_import_2 = Vue;
+const __global_import_3 = VueRouter;
+const createApp = __global_import_2.createApp;
+const ref = __global_import_2.ref;
+const RouterView = __global_import_3.RouterView;
+const Vue$1 = __global_import_2;
+const defaults = __global_import_3;
+const createRouter = __global_import_3.createRouter;
+console.log(Vue$1, defaults, ref(), createRouter());
+const foo = createApp(RouterView);
+export {
+  foo as default
+};
