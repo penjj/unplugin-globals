@@ -3,17 +3,18 @@ import { expect, test } from 'vitest'
 import { build } from 'vite'
 import globals from '../src'
 import { resolve } from 'node:path'
+import { runScript } from './util'
 
 const fixture = resolve(__dirname, 'fixtures')
-const snapshots = resolve(__dirname, '__snapshots__')
 
 test('vite', async () => {
   const result = await build({
     logLevel: 'silent',
     build: {
+      write: false,
       minify: false,
       lib: {
-        entry: resolve(fixture, 'foo.ts'),
+        entry: resolve(fixture, 'foo.js'),
         formats: ['es'],
       },
       rollupOptions: {
@@ -22,13 +23,11 @@ test('vite', async () => {
     },
     plugins: [
       globals.vite({
-        vue: 'Vue',
-        'vue-router': 'VueRouter',
+        'lib-a': 'LibA',
+        'lib-b': 'LibB',
       }) as any,
     ],
   })
 
-  expect((result as RollupOutput[])[0].output[0].code).toMatchFileSnapshot(
-    resolve(snapshots, 'vite.result')
-  )
+  expect(runScript((result as RollupOutput[])[0].output[0].code)).toEqual('Hello World')
 })

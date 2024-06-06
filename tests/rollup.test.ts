@@ -3,26 +3,24 @@ import { expect, it } from 'vitest'
 import { rollup } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 import globals from '../src'
+import { runScript } from './util'
 
 const fixture = resolve(__dirname, 'fixtures')
-const snapshots = resolve(__dirname, '__snapshots__')
 
 it('rollup', async () => {
   const { generate } = await rollup({
-    input: [resolve(fixture, 'foo.ts')],
+    input: [resolve(fixture, 'foo.js')],
     treeshake: false,
     plugins: [
       esbuild(),
       globals.rollup({
-        'vue': 'Vue',
-        'vue-router': 'VueRouter',
+        'lib-a': 'LibA',
+        'lib-b': 'LibB',
       }),
     ],
   })
   const { output } = await generate({
     dir: 'fixture',
   })
-  expect(output[0].code).toMatchFileSnapshot(
-    resolve(snapshots, 'rollup.result'),
-  )
+  expect(runScript(output[0].code)).toEqual('Hello World')
 })

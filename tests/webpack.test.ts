@@ -3,13 +3,13 @@ import { expect, test } from 'vitest'
 import { webpack } from 'webpack'
 import globals from '../src'
 import { resolve } from 'node:path'
+import { runScript } from './util'
 
 const fixture = resolve(__dirname, 'fixtures')
-const snapshots = resolve(__dirname, '__snapshots__')
 
 test('webpack', async () => {
   const compiler = webpack({
-    entry: resolve(fixture, 'foo.ts'),
+    entry: resolve(fixture, 'foo.js'),
     mode: 'production',
     stats: 'none',
     optimization: {
@@ -20,8 +20,8 @@ test('webpack', async () => {
     },
     plugins: [
       globals.webpack({
-        vue: 'Vue',
-        'vue-router': 'VueRouter',
+        'lib-a': 'LibA',
+        'lib-b': 'LibB',
       }) as any,
     ],
   })
@@ -30,7 +30,7 @@ test('webpack', async () => {
     compiler.compile((err, res) => (err ? reject(err) : resolve(res!)))
   })
 
-  expect(result.assets['main.mjs'].source().toString()).toMatchFileSnapshot(
-    resolve(snapshots, 'webpack.result')
-  )
+  expect(
+    runScript(result.assets['main.mjs'].source().toString())
+  ).toEqual('Hello World')
 })
