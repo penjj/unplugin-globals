@@ -19,9 +19,7 @@ import Globals from 'unplugin-globals/webpack'
 export default {
   plugins: [
     Globals({
-      externals: {
-        vue: 'Vue'
-      }
+      vue: 'Vue'
     })
   ]
 }
@@ -35,9 +33,7 @@ import Globals from 'unplugin-globals/rollup'
 rollup({
   plugins: [
     globals({
-      externals: {
-        vue: 'Vue'
-      }
+      vue: 'Vue'
     })
   ]
 })
@@ -52,9 +48,7 @@ import Globals from 'unplugin-globals/vite'
 export default defineConfig({
   plugins: [
     Globals({
-      externals: {
-        vue: 'Vue'
-      }
+      vue: 'Vue'
     })
   ]
 })
@@ -68,9 +62,7 @@ import Globals from 'unplugin-globals/esbuild'
 build({
   plugins: [
     Globals({
-      externals: {
-        vue: 'Vue'
-      }
+      vue: 'Vue'
     })
   ]
 })
