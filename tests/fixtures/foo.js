@@ -1,3 +1,4 @@
+/* eslint-disable eslint-comments/no-unlimited-disable */
 /* eslint-disable */
 import { h, e } from "lib-a";
 import * as all from "lib-b";

@@ -58,6 +58,10 @@ export default createUnplugin<Options>((options) => {
         return id
     },
 
+    transformInclude(id) {
+      return /[mc]?[jt]sx?$/.test(id)
+    },
+
     loadInclude(id) {
       return isGlobal(id)
     },
