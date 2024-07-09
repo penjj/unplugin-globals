@@ -33,6 +33,7 @@ export default createUnplugin<Options>((options) => {
 
   return {
     name,
+    enforce: 'pre',
     esbuild: {
       setup(build) {
         const filter = {
